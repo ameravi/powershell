@@ -1,0 +1,27 @@
+
+# this will be a general place where I document powershell snippets and / or scripts.  
+
+#### SMB/Windows File Sharing
+
+## Disabling Inerhitance
+
+$folder = 'C:\Temp'
+$acl = Get-ACL -Path $folder
+$acl.SetAccessRuleProtection($True, $True)
+Set-Acl -Path $folder -AclObject $acl
+
+## New SMB Share
+
+$name = 'Add Name'
+$path = 'add path'
+mkdir $path
+
+new-smbshare -Name $Name `
+  -Path $path `
+  -FullAccess 'Add Group or User'
+ 
+ ### Get ACL Permissions 
+ 
+ (Get-Acl -Path $dir).Access | Format-Table -AutoSize
+ 
+ 
