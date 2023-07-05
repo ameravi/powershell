@@ -9,7 +9,7 @@ $path = $env:TEMP
 $NPPURI = 'https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.5.4/npp.8.5.4.Installer.x64.exe'
 $NPPInstaller = npp.8.5.4.Installer.x64.exe
 
-Invoke-WebRequest -Uri $NPPURI -Outfile $Path\$Installer
+Invoke-WebRequest -Uri $NPPURI -Outfile $Path\$NPPInstaller
 Start-Process -FilePath $Path\$NPPInstaller -Args '/S /NCRC'
 Write-Output "Notepad ++ Is installed!"
 
