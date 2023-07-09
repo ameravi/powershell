@@ -1,6 +1,6 @@
 import-module ActiveDirectory
 
-##
+##Gather Information for the new active directory user
 
 $domain = Read-Host "Enter the active directory domain name"
 $FirstName = Read-Host "Enter the First Name of the USer"
@@ -9,6 +9,8 @@ $Name = "$Firstname"+"$LastName"
 $SamAccountName = Read-Host "Enter the Username you'd like to use"
 $Password = Read-Host "Enter in the temp password you'd like to use"
 $UserPrincipalName = "$SamAccountName"+@"$domain" 
+
+## new-aduser command adds the user
 
 new-aduser `
   -Name $Name `
@@ -20,5 +22,7 @@ new-aduser `
   -Description "User Onboarding" `
   -DisplayName $Name `
   -Enabled $True
+
+
 
 
