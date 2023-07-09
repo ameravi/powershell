@@ -38,6 +38,16 @@ Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 
 Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
 
+## Add UPN Suffixes to Domain if needed.  
+## Get Current UPN SUffixes
+
+Get-ADForest | Format-List UPNSuffixes
+
+## Add Domain(s) as UPN SUffix
+
+Get-ADForest | Set-ADForest -UPNSuffixes @{add="domain.suffix"}
+
+
 ## Configure the server as a domain controller.  This command will prompt for a dsrm password and ask to confirm the install, then reboot
 
 Install-ADDSDomainController -InstallDns -DomainName "local.meravi.us" -SafeModeAdministratorPassword
@@ -53,6 +63,8 @@ Install-ADDSDomainController -InstallDns -DomainName "local.meravi.us" -SafeMode
 
 
 Move-ADDirectoryServerOperationMasterRole $server 0,1,2,3,4 
+
+
 
 
  
