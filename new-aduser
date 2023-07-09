@@ -5,10 +5,10 @@ import-module ActiveDirectory
 $domain = Read-Host "Enter the active directory domain name"
 $FirstName = Read-Host "Enter the First Name of the USer"
 $LastName = Read-Host "Enter the last Name of the User"
-$Name = "$Firstname"+"$LastName"
+$Name = ($Firstname+ " " + $LastName)
 $SamAccountName = Read-Host "Enter the Username you'd like to use"
-$Password = Read-Host "Enter in the temp password you'd like to use"
-$UserPrincipalName = "$SamAccountName"+@"$domain" 
+$Password = Read-Host "Enter the temp password" 
+
 
 ## new-aduser command adds the user
 
@@ -17,12 +17,12 @@ new-aduser `
   -GivenName $FirstName `
   -Surname $LastName `
   -SamAccountName $SamAccountName `
-  -UserPrincipalName "$UserPrincipalName'
-  -ChangePasswordatLogon $True `
   -Description "User Onboarding" `
-  -DisplayName $Name `
-  -Enabled $True
-
+  -Path "OU=Meravi Users,OU=Meravi,DC=LOCAL,DC=MERAVI,DC=US" `
+  -AccountPassword $(ConvertTo-SecureString $Password -AsPlainText -Force) `
+  -Enabled $True `
+  -DisplayName ($FirstName + " " + $LastName) `
+  -UserPrincipalName ($SamAccountName +"@meravi.us")
 
 
 
