@@ -24,4 +24,14 @@ new-smbshare -Name $Name `
  
  (Get-Acl -Path $dir).Access | Format-Table -AutoSize
  
+ ### Remove Empty Folders
+
+# Folder empty, then remove them
  
+$path = 'C:\Data'
+ 
+Get-ChildItem $path -Recurse -Directory | ForEach-Object {
+    If((Get-ChildItem $_.FullName) -eq $null) {
+        Remove-Item -Path $_.FullName -Confirm:$false -Verbose
+    }
+ }
