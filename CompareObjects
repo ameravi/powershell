@@ -1,0 +1,17 @@
+# Returning all items from List A that are not in List B
+
+$listA | Where-Object {$listB -notcontains $_}
+
+#Return items from ListA that are not in ListB 
+
+$listA | Where-Object {$listB -notcontains $_ }
+
+#This will return all the items that are different between the two lists
+
+Compare-Object -ReferenceObject $listA -DifferenceObject $listB
+
+# This will return a table with two columns - InputObject and SideIndicator.  The inputobject column shows the items that are different and the side  indicator column shows which list they belong to
+Compare-Object -ReferenceObject $listA -DifferenceObject $listB -IncludeEqual -ExcludeDifferent -PassThru -Property *
+
+
+
