@@ -13,12 +13,10 @@ COnfigure-ServerIPInfo sets the static ip information specified, eanbles remote 
 
 $hostname = 'dc1'
 $TimeZone = 'Eastern Standard Time'
-$domainsuffix = "meravi.us"
 $localip = '192.168.40.209'
 $gateway = '192.168.40.1'
 $IpPrefixLength = '24'
 $DNSServers = '192.168.40.208,192.168.40.209'
-#$VMWare = Read-Host 'Does VMware Tools need to be installed?  Type Y for Yes, N for No'
 
 #
 #This file just stores commands to setup a new windows server
