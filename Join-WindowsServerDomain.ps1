@@ -7,3 +7,5 @@ add-computer -domainname local.meravi.us -credential $credential
 restart-computer
 
 }
+
+set-windowsdomainconfig
