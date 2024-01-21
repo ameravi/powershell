@@ -4,7 +4,13 @@
 
 function Configure-ServerIpInfo {
 
-$credential = get-credential 
+<#
+.SYNOPSIS
+This function performs some initial setup steps on a windows server vm
+.DESCRIPTION
+COnfigure-ServerIPInfo sets the static ip information specified, eanbles remote desktop and renames the computer.
+#>
+
 $hostname = 'dc1'
 $TimeZone = 'Eastern Standard Time'
 $domainsuffix = "meravi.us"
