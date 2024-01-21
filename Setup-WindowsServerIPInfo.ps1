@@ -34,6 +34,11 @@ New-NetIPAddress -InterfaceIndex $Index -IPAddress $localip -PrefixLength $IPPre
 
 Set-DnsClientServerAddress -InterfaceIndex $index -ServerAddresses $DNSServers
 
+##Enable Remote Desktop on the system
+
+Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0
+Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+
 ## Rename Windows Server
 
 rename-computer -newname $hostname  
