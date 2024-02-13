@@ -33,17 +33,18 @@ rm -Force $Installdir\AcroRdrDC*
 
 
 function install-notepadplusplus {
+
 ### Notepad++ Install###
 
 $path = $env:TEMP
-$NPPURI = 'https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.5.4/npp.8.5.4.Installer.x64.exe'
-$NPPInstaller = npp.8.5.4.Installer.x64.exe
+$NPPURI = 'https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.5.4/npp.8.6.2.Installer.x64.exe'
+$NPPInstaller = 'npp.8.6.2.Installer.x64.exe'
 
 Invoke-WebRequest -Uri $NPPURI -Outfile $Path\$NPPInstaller
 Start-Process -FilePath $Path\$NPPInstaller -Args '/S /NCRC'
 Write-Output "Notepad ++ Is installed!"
 }
 
-install-googlechrome
-install-adobereader
+#install-googlechrome
+#install-adobereader
 install-notepadplusplus
