@@ -45,6 +45,8 @@ Start-Process -FilePath $Path\$NPPInstaller -Args '/S /NCRC'
 Write-Output "Notepad ++ Is installed!"
 }
 
+# Functions are below.  Comment out the functions that you do not want to run. 
+
 #install-googlechrome
 #install-adobereader
 install-notepadplusplus
