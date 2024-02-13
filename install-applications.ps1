@@ -1,7 +1,13 @@
+function install-googlechrome {
+
 ## Google Chrome Install ###
 
 $Path = $env:TEMP; $Installer = 'chrome_installer.exe'; Invoke-WebRequest -Uri 'http://dl.google.com/chrome/install/375.126/chrome_installer.exe' -OutFile $Path\$Installer; Start-Process -FilePath $Path\$Installer -Args '/silent /install' -Verb RunAs -Wait; Remove-Item -Path $Path\$Installer
 Write-Output "Google Chrome Enterprise is installed!"
+
+}
+
+function install-adobereader {
 
 ### Adobe Reader Install ###
 
@@ -22,7 +28,11 @@ Start-Sleep -s 240
 
 rm -Force $Installdir\AcroRdrDC*
 }
+}
 
+
+
+function install-notepadplusplus {
 ### Notepad++ Install###
 
 $path = $env:TEMP
@@ -32,6 +42,8 @@ $NPPInstaller = npp.8.5.4.Installer.x64.exe
 Invoke-WebRequest -Uri $NPPURI -Outfile $Path\$NPPInstaller
 Start-Process -FilePath $Path\$NPPInstaller -Args '/S /NCRC'
 Write-Output "Notepad ++ Is installed!"
+}
 
-
-
+install-googlechrome
+install-adobereader
+install-notepadplusplus
