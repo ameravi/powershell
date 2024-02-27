@@ -1,4 +1,4 @@
-$DomainName = 'local.meravi.us
+$DomainName = 'local.meravi.us'
 
 ## Upgrade the server to a domain controller
 
