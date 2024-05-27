@@ -37,8 +37,8 @@ function install-notepadplusplus {
 ### Notepad++ Install###
 
 $path = $env:TEMP
-$NPPURI = 'https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.2/npp.8.6.2.Installer.x64.exe'
-$NPPInstaller = 'npp.8.6.2.Installer.x64.exe'
+$NPPURI = 'https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.7/npp.8.6.7.Installer.x64.exe'
+$NPPInstaller = 'npp.8.6.7.Installer.x64.exe'
 
 Invoke-WebRequest -Uri $NPPURI -Outfile $Path\$NPPInstaller
 Start-Process -FilePath $Path\$NPPInstaller -Args '/S /NCRC'
