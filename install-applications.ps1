@@ -30,8 +30,6 @@ rm -Force $Installdir\AcroRdrDC*
 }
 }
 
-
-
 function install-notepadplusplus {
 
 ### Notepad++ Install###
@@ -45,8 +43,22 @@ Start-Process -FilePath $Path\$NPPInstaller -Args '/S /NCRC'
 Write-Output "Notepad ++ Is installed!"
 }
 
+function install-powershell7 {
+#This script installs Powershell 7.4.1 using 
+
+$psuri = 'https://github.com/PowerShell/Powershell/releases/download/v7.4.1/Powershell-7.4.1-win-x64.msi'
+$installer = 'Powershell-7.4.1-win-x64.msi'
+$path = $env:TEMP
+$ps7path = 'c:\program files\powershell\7\pwsh.exe'
+
+invoke-webrequest -URI $psuri -OutFile $Path\$Installer
+msiexec /i $path\$installer /qn
+}
+
+#look for Powershell Installation
 # Functions are below.  Comment out the functions that you do not want to run. 
 
 #install-googlechrome
 #install-adobereader
 install-notepadplusplus
+install-powershell7
