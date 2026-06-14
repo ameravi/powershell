@@ -1,5 +1,6 @@
 $DomainName = 'local.meravi.us'  #Variables
 $SafeModeAdministratorPassword = 'IguanA82!'
+$SecureString = ConvertTo-SecureString $SafeModeAdministratorPassword -AsPlainText -Force
 
 ## Upgrade the server to a domain controller
 
